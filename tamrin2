@@ -1,0 +1,19 @@
+using System;
+
+namespace project
+{
+    class test
+    {
+        public static void Main()
+        {
+            int X= Convert.ToInt32(Console.ReadLine());
+            int Y= Convert.ToInt32(Console.ReadLine());
+            Calc (X, Y);
+        }
+        private static void Calc ( int x, int y)
+        {
+            double result = Math.Sqrt(Math.Abs(x)+Math.Pow(y, 2));
+            Console.WriteLine(result);
+        }
+    }
+}
