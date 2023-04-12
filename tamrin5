@@ -1,0 +1,49 @@
+using System;
+
+namespace project
+{
+    class test
+    {
+        public static void Main()
+        {
+            int x = Convert.ToInt32(Console.ReadLine());
+            if (x % 2 == 0)
+            {
+                Even(x);
+            }
+            else
+            {
+                Odd(x);
+            }
+
+        }
+        private static void Even(int x)
+        {
+            int sum = 0, zarb = 1;
+            for (int i = 2; i <= x; i++)
+            {
+                sum += i;
+                zarb *= i;
+                if (i == x)
+                {
+                    Console.WriteLine("majmoo=" + sum);
+                    Console.WriteLine("haselezarb=" + zarb);
+                }
+            }
+        }
+        private static void Odd(int x)
+        {
+            int sum = 0, zarb = 1;
+            for (int i = 1; i <= x; i++)
+            {
+                sum += i;
+                zarb *= i;
+                if (i == x)
+                {
+                    Console.WriteLine("majmoo=" + sum);
+                    Console.WriteLine("haselezarb=" + zarb);
+                }
+            }
+        }
+    }
+}
