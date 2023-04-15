@@ -1,0 +1,56 @@
+using System;
+using System.ComponentModel.Design;
+using System.Runtime.CompilerServices;
+
+namespace project
+{
+    class test
+    {
+        public static void Main()
+        {
+            float x = Convert.ToInt32(Console.ReadLine());
+            float y = Convert.ToInt32(Console.ReadLine());
+            bmm(x, y);
+            kmm(x, y);
+        }
+            private static void bmm (float x,float y){
+            if (x == y) 
+            { 
+                Console.WriteLine("BMM= "+x); 
+            }
+            else if (x > y)
+            {
+                for (int i = 1; i <= y; i++)
+                {
+                    if (y % i == 0 & x % i == 0)
+                    { 
+                            Console.WriteLine("BMM= " + i);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 1; i <= x; i++)
+                {
+                    if (y % i == 0 & x % i == 0) 
+                    { 
+                            Console.WriteLine("BMM="+Max(i));    
+                    }
+                }
+
+            }
+            
+            }
+         private static void kmm (float x,float y)
+         { double f = x * y;
+           for (int i = 1; i <= f; i++)
+            {if (i % x == 0 & i % y == 0)
+                {
+                    Console.WriteLine("KMM=" + i);
+                }
+            }
+
+         }
+            
+    }
+}
