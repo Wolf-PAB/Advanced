@@ -9,36 +9,36 @@ namespace project
         public static void Main()
         {
             int[,] a = new int[50, 50];
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i <50; i++)
             {
-                for (int j = 0; j < 50; j++)
+                for (int j = 0; j <50; j++)
                 {
-                    a[i,j] = Convert.ToInt32(Console.ReadLine());
+                    a[i, j] = Convert.ToInt32(Console.ReadLine());
                 }
             }
             Calc(a);
         }
         private static void Calc(int[,] a)
         {
-            for (int i = 1; i < 49; i++)
+            for (int i = 1; i <49; i++)
             {
-                for (int j = 1; j < 49; j++)
+                for (int j = 1; j <49; j++)
                 {
-                    a[i, j] = (a[i - 1, j - 1] + a[i - 1, j] + a[i - 1, j + 1] + a[i, j - 1] + a[i, j] + a[i, j + 1] + a[i + 1, j - 1] + a[i + 1, j] + a[i + 1, j + 1]) / 9;
-                    
+                    a[i, j] = (a[i - 1, j - 1] + a[i - 1, j] + a[i - 1, j + 1] + a[i, j - 1] + a[i, j] + a[i, j + 1] + a[i + 1, j - 1] + a[i + 1, j] + a[i + 1, j + 1]) /9;
+
+                }
+            }
+            for (int f = 0; f <= 49; f++)
+            {
+                {
+                    for (int j = 0; j <= 49; j++)
+                    {
+                        Console.Write(" ");
+                        Console.Write(a[f, j]);
+                    }
+                    Console.WriteLine();
                 }
 
-                for (int f = 0; f <= 49; f++)
-                {
-                    {
-                        for (int j = 0; j <= 49; j++)
-                        {
-                            Console.Write(" ");
-                            Console.Write(a[i, j]);
-                        }
-                        Console.WriteLine();
-                    }
-                }
             }
         }
     }
