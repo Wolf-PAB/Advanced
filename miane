@@ -20,9 +20,9 @@ namespace project
         }
         private static void Calc(int[,] a)
         {
-            for (int i = 2; i < 49; i++)
+            for (int i = 1; i < 49; i++)
             {
-                for (int j = 2; j < 49; j++)
+                for (int j = 1; j < 49; j++)
                 {
                     a[i, j] = (a[i - 1, j - 1] + a[i - 1, j] + a[i - 1, j + 1] + a[i, j - 1] + a[i, j] + a[i, j + 1] + a[i + 1, j - 1] + a[i + 1, j] + a[i + 1, j + 1]) / 9;
                     
@@ -32,8 +32,11 @@ namespace project
                 {
                     {
                         for (int j = 0; j <= 49; j++)
-                            
-                            Console.WriteLine(a[i, j]);
+                        {
+                            Console.Write(" ");
+                            Console.Write(a[i, j]);
+                        }
+                        Console.WriteLine();
                     }
                 }
             }
