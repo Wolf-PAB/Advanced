@@ -8,28 +8,29 @@ namespace project
         private string lastname;
         private int hours;
         private int payperonehour;
-        public string Id { get { return id; } set {  id = value; } }
+        public string Id { get { return id; } set { id = value; } }
         public string Name { get { return name; } set { name = value; } }
-        public string Lastname { get {  return lastname; } set {  lastname = value; } }
+        public string Lastname { get { return lastname; } set { lastname = value; } }
         public int Hours { get { return hours; } set { hours = value; } }
-        public int Payperonehour { get {  return payperonehour; } set { if (value > 0) { payperonehour = value; } } }
+        public int Payperonehour { get { return payperonehour; } set { if (value > 0) { payperonehour = value; } } }
         public Teacher() { }
-        public Teacher(string id, string name, string lastname, int hours, int payperonehour, string id, string name, string lastname, int hours, int payperonehour)
+        public Teacher(string Id, string Name, string Lastname, int Hours, int Payperonehour)
         {
-            Id = id;
-            Name = name;
-            Lastname = lastname;
-            Hours = hours;
-            Payperonehour = payperonehour;
-            Id = id;
-            Name = name;
-            Lastname = lastname;
-            Hours = hours;
-            Payperonehour = payperonehour;
+            id = Id;
+            name = Name;
+            lastname = Lastname;
+            hours = Hours;
+            payperonehour = Payperonehour;
         }
-        public long Payment() {return hours*payperonehour; }
-        Teacher = new Teacher("123","Ali","Ahmadi",16,40000);
-        long Pay = th.Payment();
-        Console.WriteLine(Pay);
+        public long Payment() { return hours * payperonehour; }
     }
-}}}}
+    class test
+    {
+        public static void Main()
+        {
+            Teacher th = new Teacher("123", "Ali", "Ahmadi", 16, 40000);
+            long Pay = th.Payment();
+            Console.WriteLine(Pay);
+        }
+    }
+}
