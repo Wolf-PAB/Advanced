@@ -1,0 +1,42 @@
+using System;
+using System.Security.Cryptography.X509Certificates;
+
+namespace project
+{
+    public class Noghteh
+    {
+        private int x1;
+        private int x2;
+        private int y1;
+        private int y2;
+        public int X1 { get { return x1; } set { x1 = value; } }
+        public int X2 { get { return x2; } set { x2 = value; } }
+        public int Y1 { get { return y1; } set { y1 = value; } }
+        public int Y2 { get { return y2; } set { y2 = value; } }
+        public Noghteh() { }
+        public Noghteh(int X1, int X2, int Y1, int Y2)
+        {
+            x1 = X1;
+            x2 = X2;
+            y1 = Y1;
+            y2 = Y2;
+        }
+            public double Khat() { return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2)); }
+        }
+    
+    class test { public static void Main()
+        {
+            int x1=Convert.ToInt32(Console.ReadLine());
+            int x2=Convert.ToInt32(Console.ReadLine());
+            int y1=Convert.ToInt32(Console.ReadLine());
+            int y2=Convert.ToInt32(Console.ReadLine());
+            Noghteh dis1=new Noghteh(x1,x2,y1,y2);
+            x1 = Convert.ToInt32(Console.ReadLine());
+            x2 = Convert.ToInt32(Console.ReadLine());
+            y1 = Convert.ToInt32(Console.ReadLine());
+            y2 = Convert.ToInt32(Console.ReadLine());
+            Noghteh dis2=new Noghteh(x1,x2,y1,y2);
+            if (dis1.Khat() > dis2.Khat()) { Console.WriteLine("first line is bigger"); }
+            else { Console.WriteLine("second line is bigger"); }
+        } }
+}
