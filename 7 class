@@ -88,3 +88,4 @@ namespace project
         public double A() {return (n * Math.Pow(s, 2)) / 4 * Math.Tan(pi / n); }
 
     }
+}
