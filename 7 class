@@ -1,0 +1,90 @@
+using System;
+using System.Security.Cryptography;
+
+namespace project
+{
+    class Circle
+    {
+        private double r;
+        double pi = 3.14;
+        public double R { get { return r; } set { if (value > 0) { r = value; } } }
+        public Circle() { }
+        public Circle(double R) { r = R; }
+        public double S() { return Math.Pow(r, 2) * pi; }
+        public double A() { return 2 * r * pi; }
+    }
+    class Square
+    { private double x;
+        public double X { get { return x; } set { if (value > 0) { x = value; } } }
+        public Square() { }
+        public Square(double X) { x = X;}
+        public double S() { return x*x; }
+        public double A() { return x*4; }
+
+    }
+    class Triangle
+    {
+        private double x;
+        private double h;
+        private double y;
+        public double X { get { return x; } set { if (value > 0) { x = value; } } }
+        public double H { get { return h; } set { if (value > 0) { h = value; } } }
+        public double Y { get { return y; } set { if (value > 0) { y = value; } } }
+        public Triangle() { }
+        public Triangle(double X, double H, double Y) { x = X; h = H; y = Y; }
+        public double S() { return x * h / 2; }
+        public double A() { return x+h+y;}
+    }
+    class Trapezoid
+    {
+        private double x;
+        private double h;
+        private double y;
+        private double z;
+        private double w;
+        public double X { get { return x; } set { if (value > 0) { x = value; } } }
+        public double H { get { return h; } set { if (value > 0) { h = value; } } }
+        public double Y { get { return y; } set { if (value > 0) { y = value; } } }
+        public double Z { get { return z; } set { if (value > 0) { z = value; } } }
+        public double W { get { return w; } set { if (value > 0) { w = value; } } }
+        public Trapezoid() { }
+        public Trapezoid(double x, double h, double y, double z, double w) { x = X; h = H; y = Y; z = Z; w = W; }
+        public double S() { return ((x + y) * h) / 2; }
+        public double A() { return x + y + z + w; }
+    }
+
+    class Ellipse
+    {
+        private double r1;
+        private double r2;
+        double pi = 3.14;
+        public double R1 { get { return r1; } set { if (value > 0) { r1 = value; } } }
+        public double R2 { get { return r2; } set { if (value > 0) { r2 = value; } } }
+        public Ellipse() { }
+        public Ellipse(double r1, double r2) { r1 = R2; r2 = R2; }
+        public double S() { return r1 * r2 * pi; }
+        public double A() { return ((r1 + r2) / 2) * pi * 2; }
+    }
+    class Rectangle
+    {
+        private double x;
+        private double y;
+        public double X { get { return x; } set { if (value > 0) { x = value; } } }
+        public double Y { get { return y; } set { if (value > 0) {  y = value; } } }
+        public Rectangle() { }
+        public Rectangle(double x, double y) { x = X; y=Y; }
+        public double S() { return x * y; }
+        public double A() { return (x + y) * 2; }
+    }
+    class Any
+    {
+        private int n;
+        private int s;
+        double pi = 3.14;
+        public int N { get { return n;}set { n = value;} }
+        public int S { get { return s; }set { s = value;} }
+        public Any() { }
+        public Any(int n,int s) { n = N; s = S; }
+        public double A() {return (n * Math.Pow(s, 2)) / 4 * Math.Tan(pi / n); }
+
+    }
