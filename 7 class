@@ -14,12 +14,13 @@ namespace project
         public double A() { return 2 * r * pi; }
     }
     class Square
-    { private double x;
+    {
+        private double x;
         public double X { get { return x; } set { if (value > 0) { x = value; } } }
         public Square() { }
-        public Square(double X) { x = X;}
-        public double S() { return x*x; }
-        public double A() { return x*4; }
+        public Square(double X) { x = X; }
+        public double S() { return x * x; }
+        public double A() { return x * 4; }
 
     }
     class Triangle
@@ -33,7 +34,7 @@ namespace project
         public Triangle() { }
         public Triangle(double X, double H, double Y) { x = X; h = H; y = Y; }
         public double S() { return x * h / 2; }
-        public double A() { return x+h+y;}
+        public double A() { return x + h + y; }
     }
     class Trapezoid
     {
@@ -55,24 +56,24 @@ namespace project
 
     class Ellipse
     {
-        private double r1;
-        private double r2;
+        private double x;
+        private double y;
         double pi = 3.14;
-        public double R1 { get { return r1; } set { if (value > 0) { r1 = value; } } }
-        public double R2 { get { return r2; } set { if (value > 0) { r2 = value; } } }
+        public double X { get { return x; } set { if (value > 0) { x = value; } } }
+        public double Y { get { return y; } set { if (value > 0) { y = value; } } }
         public Ellipse() { }
-        public Ellipse(double r1, double r2) { r1 = R2; r2 = R2; }
-        public double S() { return r1 * r2 * pi; }
-        public double A() { return ((r1 + r2) / 2) * pi * 2; }
+        public Ellipse(double x, double y) { x = X; y = Y; }
+        public double S() { return x * y * pi; }
+        public double A() { return ((x + y) / 2) * pi * 2; }
     }
     class Rectangle
     {
         private double x;
         private double y;
         public double X { get { return x; } set { if (value > 0) { x = value; } } }
-        public double Y { get { return y; } set { if (value > 0) {  y = value; } } }
+        public double Y { get { return y; } set { if (value > 0) { y = value; } } }
         public Rectangle() { }
-        public Rectangle(double x, double y) { x = X; y=Y; }
+        public Rectangle(double x, double y) { x = X; y = Y; }
         public double S() { return x * y; }
         public double A() { return (x + y) * 2; }
     }
@@ -81,11 +82,29 @@ namespace project
         private int n;
         private int s;
         double pi = 3.14;
-        public int N { get { return n;}set { n = value;} }
-        public int S { get { return s; }set { s = value;} }
+        public int N { get { return n; } set { n = value; } }
+        public int S { get { return s; } set { s = value; } }
         public Any() { }
-        public Any(int n,int s) { n = N; s = S; }
-        public double A() {return (n * Math.Pow(s, 2)) / 4 * Math.Tan(pi / n); }
+        public Any(int n, int s) { n = N; s = S; }
+        public double A() { return (n * Math.Pow(s, 2)) / 4 * Math.Tan(pi / n); }
 
+    }
+    class test
+    {
+        public static void Main(String[] args)
+        {
+            Console.WriteLine("choose your shape\r\n Circle\r\n Square\r\n Triangle\r\n Ellipse\r\n Rectangle\r\n Any\r\n");
+            string x = Console.ReadLine();
+            switch (x)
+            {
+                case "Circle": int r = Convert.ToInt32(Console.ReadLine()); Circle C = new Circle(r); double a = C.A(); double s = C.S(); Console.WriteLine(a);Console.WriteLine(s); break;
+                case "Square": int f= Convert.ToInt32(Console.ReadLine());  Square C1=new Square(f); double a1= C1.A();double s1 = C1.S(); Console.WriteLine(a1); Console.WriteLine(s1); break;
+                case "Triangle": int g= Convert.ToInt32(Console.ReadLine()); int h= Convert.ToInt32(Console.ReadLine()); int i= Convert.ToInt32(Console.ReadLine());
+                    Triangle C2 = new Triangle(g, h, i); double a2= C2.A(); double s2= C2.S(); Console.WriteLine(a2); Console.WriteLine(s2); break;
+                case "Ellipse": int l= Convert.ToInt32(Console.ReadLine()); int m= Convert.ToInt32(Console.ReadLine());Ellipse C3=new Ellipse(l, m); double a3= C3.A();double s3= C3.S(); Console.WriteLine(a3); Console.WriteLine(s3); break;
+                case "Rectangle": int t= Convert.ToInt32(Console.ReadLine()); int q= Convert.ToInt32(Console.ReadLine());Rectangle C4=new Rectangle(t, q);double a4= C4.A();double s4= C4.S(); Console.WriteLine(a4); Console.WriteLine(s4);break;
+                case "Any": int p= Convert.ToInt32(Console.ReadLine());int z= Convert.ToInt32(Console.ReadLine());Any C5=new Any(p,z); double a5= C5.A(); Console.WriteLine(a5); break;
+            }
+        }
     }
 }
