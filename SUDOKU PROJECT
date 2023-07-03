@@ -1,0 +1,175 @@
+using System;
+namespace test
+{
+    internal class sudoku
+    {
+        public static Int16 SIZE = 9;                
+        public static Int16 KHALI = 0;          
+        public static void Main()
+        {
+            int[,] sudoku = new int[SIZE, SIZE];
+            Hallkonande A = new Hallkonande(KHALI, SIZE, sudoku);
+            Console.WriteLine("sudoku ra keamel konid");
+            A.por();
+            Console.WriteLine("sudokuye vared shodeh:");
+            A.tainja();
+            A.hal();
+            Console.WriteLine("sudokuye hal shode");
+            A.tainja();
+        }
+    }
+    internal class Hallkonande
+    {
+        private Int16 khali;
+        private Int16 size;
+        private int[,] sudoku;
+
+        public Int16 Khali
+        {
+            get { return khali; }
+            set { khali = value; }
+        }
+        public Int16 Size
+        {
+            get { return size; }
+            set { size = value; }
+        }
+
+        public int[,] Sudoku
+        {
+            get { return sudoku; }
+            set { sudoku = value; }
+        }
+
+        public Hallkonande(Int16 khali, Int16 size, int[,] sudoku)
+        {
+            Khali = khali;
+            Size = size;
+            Sudoku = sudoku;
+        }
+        public Hallkonande() { }
+
+
+        public int[,] por()
+        {
+            int karbar = khali;
+            string? input;
+            bool check1 = false;
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    Console.WriteLine("sudokuye vared shodeh:");
+                    tainja();
+                    do
+                    {
+                        Console.WriteLine("khooneye: [" + i + "][" + j + "]:");
+                        input = Console.ReadLine();
+                        if (
+                            input == "" ||
+                            input == " " ||
+                            input == null)
+                        {
+                            karbar = khali; 
+                        }
+                        else
+                        {
+                            karbar = Convert.ToInt16(input);
+                        }
+                        if (karbar > 9 || karbar < 0)
+                        {
+                            Console.WriteLine("Erorr:adad bein 0-9 !!!");
+                        }
+                        check1 = check(karbar, i, j);
+
+                        if (check1 && karbar != khali)
+                        {
+                            Console.WriteLine("dar satr ya sotoon az in adad darim");
+                        }
+                        else
+                        {
+                            check1 = false;
+                        }
+                    } while ((karbar > 9 || karbar < 0) || check1);
+
+                    sudoku[i, j] = karbar;
+                }
+            }
+            return sudoku;
+        }
+        public void tainja()
+        {
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    Console.Write(sudoku[i, j]);
+                    if (j != 0 || j != size)
+                    {
+                        Console.Write("|");
+                    }
+
+                }
+                Console.Write("\n------------------\n");
+            }
+        }
+        private bool check(int num, int x, int y)
+        {
+            bool check1 = false;
+            for (int i = 0; i < size; i++)
+            {
+                if (sudoku[i, y] == num)
+                {
+                    check1 = true;
+                }
+                if (sudoku[x, i] == num)
+                {
+                    check1 = true;
+                }
+            }
+            int startRow = x - x % 3;
+            int startCol = y - y % 3;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (sudoku[i + startRow, j + startCol] == num)
+                    {
+                        check1 = true;
+                    }
+                }
+            }
+            return check1;
+        }
+        public bool hal()
+        {
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if (sudoku[i, j] == khali)
+                    {
+                        for (int n = 1; n <= size; n++)
+                        {
+                            if (!check(n, i, j))
+                            {
+                                sudoku[i, j] = n;
+                                if (hal())
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    sudoku[i, j] = khali;
+                                }
+                            }
+                        }
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    }
+}
